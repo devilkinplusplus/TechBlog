@@ -1,8 +1,69 @@
-﻿
+﻿@model IEnumerable<Blog>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
 
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-top clearfix">
+                        <h4 class="pull-left">Recent News <a href="#"><i class="fa fa-rss"></i></a></h4>
+                    </div><!-- end blog-top -->
+
+                    <div class="blog-list clearfix">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="tech-single.html" title="">
+                                            <img src="~/tech-blog/tech-blog/upload/tech_blog_01.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="tech-single.html" title="">
+                                        @item.Title
+                                        </a></h4>
+                                    <p>@item.Description</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">@item.Category.Name</a></small>
+                                    <small><a href="tech-single.html" title="">
+                                        @item.Date.ToString("dd MMM yyyy")</a></small>
+                                    <small><a href="tech-author.html" title="">
+                                        @item.Writer.Name
+                                    </a></small>
+                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 1114</a></small>
+                                </div><!-- end meta -->
+                            </div>
+
+                            <hr class="invis">
+                        }
+
+
+                    </div><!-- end blog-list -->
+                </div><!-- end page-wrapper -->
+
+                <hr class="invis">
+
+
+            </div><!-- end col -->
+
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="sidebar">
+
+                    @await Component.InvokeAsync("PopularPost")
+
+                    @await Component.InvokeAsync("RecentViews")
+
+                </div><!-- end sidebar -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>

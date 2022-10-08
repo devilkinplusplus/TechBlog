@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Blog>
+
+<section class="section first-section">
+    <div class="container-fluid">
+        <div class="masonry-blog clearfix">
+            @foreach (var item in Model.Take(4))
+            {
+                <div class="last-slot">
+                    <div class="masonry-box post-media">
+                        <img src="~/tech-blog/tech-blog/upload/tech_03.jpg" alt="" class="img-fluid">
+                        <div class="shadoweffect">
+                            <div class="shadow-desc">
+                                <div class="blog-meta">
+                                    <span class="bg-orange">
+                                        <a href="tech-category-01.html" title="">
+                                            @item.Category.Name
+                                        </a>
+                                    </span>
+                                    <h4>
+                                        <a href="tech-single.html" title="">
+                                            @item.Title
+                                        </a>
+                                    </h4>
+                                    <small>
+                                        <a href="tech-single.html" title="">
+                                            @item.Date.ToString("dd-MM-yyyy")
+                                        </a>
+                                    </small>
+                                    <small>
+                                        <a href="tech-author.html" title="">
+                                            @item.Writer.Name
+                                        </a>
+                                    </small>
+                                </div><!-- end meta -->
+                            </div><!-- end shadow-desc -->
+                        </div><!-- end shadow -->
+                    </div><!-- end post-media -->
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>

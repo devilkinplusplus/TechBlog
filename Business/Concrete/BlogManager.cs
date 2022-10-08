@@ -38,6 +38,11 @@ namespace Business.Concrete
             return blogDal.GetAll();
         }
 
+        public List<Blog> GetBlogInfo()
+        {
+            return blogDal.GetBlogInfo();
+        }
+
         public void Update(Blog entity)
         {
             blogDal.Update(entity);
