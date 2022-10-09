@@ -8,7 +8,25 @@
         <!-- end market-header -->
         @await Component.InvokeAsync("TopBlogs")
 
-        @RenderBody()
+        <section class="section">
+            <div class="container">
+                <div class="row">
+
+                    @RenderBody()
+                    
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+
+                            @await Component.InvokeAsync("PopularPost")
+
+                            @await Component.InvokeAsync("RecentViews")
+
+                        </div><!-- end sidebar -->
+                    </div>
+
+                </div><!-- end col -->
+            </div>
+        </section>
 
         @await Component.InvokeAsync("Footer")
 

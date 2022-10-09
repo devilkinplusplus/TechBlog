@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TechBlog.ViewComponents.Index
+namespace TechBlog.ViewComponents.Layout
 {
-    public class RecentViews:ViewComponent
+    public class PopularPost : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

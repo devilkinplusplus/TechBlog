@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Blog>
+
+<div class="custombox clearfix">
+    <h4 class="small-title">You may also like</h4>
+    <div class="row">
+
+        @foreach (var item in Model.Where(x => x.BlogId != ViewBag.Id).Take(2))
+        {
+            <div class="col-lg-6">
+                <div class="blog-box">
+                    <div class="post-media">
+                        <a href="tech-single.html" title="">
+                            <img src="~/tech-blog/tech-blog/upload/tech_menu_04.jpg" alt="" class="img-fluid">
+                            <div class="hovereffect">
+                                <span class=""></span>
+                            </div><!-- end hover -->
+                        </a>
+                    </div><!-- end media -->
+                    <div class="blog-meta">
+                        <h4><a href="/Blog/Details/@item.BlogId" title="">@item.Title</a></h4>
+                        <small><a href="/Blog/Details/@item.BlogId" title="">@item.Category.Name</a></small>
+                        <small>
+                            <a href="/Blog/Details/@item.BlogId" title="">
+                                @item.Date.ToString("dd MMMM ,yyyy")
+                            </a>
+                        </small>
+                    </div><!-- end meta -->
+                </div><!-- end blog-box -->
+            </div>
+        }
+
+    </div><!-- end row -->
+</div><!-- end custom-box -->

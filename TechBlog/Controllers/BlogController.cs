@@ -17,5 +17,13 @@ namespace TechBlog.Controllers
             var values = _blogService.GetBlogInfo();
             return View(values);
         }
+
+        public IActionResult Details(int id)
+        {
+            ViewBag.Id = id;
+            var data = _blogService.GetBlog(id);
+            return View(data);
+        }
+
     }
 }

@@ -38,6 +38,11 @@ namespace Business.Concrete
             return blogDal.GetAll();
         }
 
+        public Blog GetBlog(int id)
+        {
+            return blogDal.GetBlog(id);
+        }
+
         public List<Blog> GetBlogInfo()
         {
             return blogDal.GetBlogInfo();

@@ -11,5 +11,6 @@ namespace DataAccess.Abstract
     public interface IBlogDal:IEntityRepository<Blog>
     {
         List<Blog> GetBlogInfo();
+        Blog GetBlog(int id);
     }
 }

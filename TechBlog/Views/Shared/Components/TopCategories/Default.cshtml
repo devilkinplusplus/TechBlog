@@ -1,0 +1,168 @@
+﻿@model TechBlog.ViewModels.NavbarVM
+@{
+    int coun = 0;
+
+}
+
+<div class="container">
+    <div class="mega-menu-content clearfix">
+        <div class="tab">
+            @foreach (var item in Model.Categories.Take(5))
+            {
+                <button class="tablinks" onclick="openCategory(event, '@coun')">
+                    @item.Name
+                </button>
+                coun++;
+            }
+
+        </div>
+
+        <div class="tab-details clearfix">
+            <div id="0" class="tabcontent active">
+                <div class="row">
+                    @foreach (var item in Model.Blogs.Where(x => x.CategoryId == 1).Take(4))
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="blog-box">
+                                <div class="post-media">
+                                    <a href="/Blog/Details/@item.BlogId" title="">
+                                        <img src="~/tech-blog/tech-blog/upload/tech_menu_01.jpg" alt="" class="img-fluid">
+                                        <div class="hovereffect">
+                                        </div><!-- end hover -->
+                                        <span class="menucat">
+                                            @item.Category.Name
+                                        </span>
+                                    </a>
+                                </div><!-- end media -->
+                                <div class="blog-meta">
+                                    <h4>
+                                        <a href="/Blog/Details/@item.BlogId" title="">
+                                            @item.Title
+                                        </a>
+                                    </h4>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+                        </div>
+
+                    }
+                </div><!-- end row -->
+            </div>
+            <div id="1" class="tabcontent">
+                <div class="row">
+                    @foreach (var item in Model.Blogs.Where(x => x.CategoryId == 2).Take(4))
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="blog-box">
+                                <div class="post-media">
+                                    <a href ="/Blog/Details/@item.BlogId" title="">
+                                        <img src="~/tech-blog/tech-blog/upload/tech_menu_05.jpg"
+                                        alt="" class="img-fluid">
+                                        <div class="hovereffect">
+                                        </div><!-- end hover -->
+                                        <span class="menucat">
+                                            @item.Category.Name
+                                        </span>
+                                    </a>
+                                </div><!-- end media -->
+                                <div class="blog-meta">
+                                    <h4>
+                                        <a href="/Blog/Details/@item.BlogId" title="">
+                                        @item.Title
+                                    </a></h4>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+                        </div>
+
+                    }
+
+                </div><!-- end row -->
+            </div>
+            <div id="2" class="tabcontent">
+                <div class="row">
+                    @foreach (var item in Model.Blogs.Where(x=>x.CategoryId==3).Take(4))
+                    {
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="blog-box">
+                            <div class="post-media">
+                                <a href="/Blog/Details/@item.BlogId" title="">
+                                    <img src="~/tech-blog/tech-blog/upload/tech_menu_09.jpg" alt="" class="img-fluid">
+                                    <div class="hovereffect">
+                                    </div><!-- end hover -->
+                                    <span class="menucat">
+                                        @item.Category.Name
+                                    </span>
+                                </a>
+                            </div><!-- end media -->
+                            <div class="blog-meta">
+                                <h4><a href="/Blog/Details/@item.BlogId" title="">
+                                    @item.Title
+                                </a></h4>
+                            </div><!-- end meta -->
+                        </div><!-- end blog-box -->
+                    </div>
+                        
+                    }
+                </div><!-- end row -->
+            </div>
+            <div id="3" class="tabcontent">
+                <div class="row">
+                    @foreach (var item in Model.Blogs.Where(x=>x.CategoryId==4).Take(4))
+                    {
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="blog-box">
+                            <div class="post-media">
+                                <a href="/Blog/Details/@item.BlogId" title="">
+                                        <img src="~/tech-blog/tech-blog/upload/tech_menu_13.jpg" alt="" class="img-fluid">
+                                    <div class="hovereffect">
+                                    </div><!-- end hover -->
+                                    <span class="menucat">
+                                        @item.Category.Name
+                                    </span>
+                                </a>
+                            </div><!-- end media -->
+                            <div class="blog-meta">
+                                    <h4>
+                                        <a href="/Blog/Details/@item.BlogId" title="">
+                                    @item.Title
+                                </a></h4>
+                            </div><!-- end meta -->
+                        </div><!-- end blog-box -->
+                    </div>
+                        
+                    }
+
+                </div><!-- end row -->
+            </div>
+            <div id="4" class="tabcontent">
+                <div class="row">
+                    @foreach (var item in Model.Blogs.Where(x=>x.CategoryId==5).Take(4))
+                    {
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="blog-box">
+                            <div class="post-media">
+                                    <a href="/Blog/Details/@item.BlogId" title="">
+                                        <img src="~/tech-blog/tech-blog/upload/tech_menu_17.jpg" alt="" class="img-fluid">
+                                    <div class="hovereffect">
+                                    </div><!-- end hover -->
+                                    <span class="menucat">
+                                        @item.Category.Name
+                                    </span>
+                                </a>
+                            </div><!-- end media -->
+                            <div class="blog-meta">
+                                    <h4>
+                                        <a href="/Blog/Details/@item.BlogId" title="">
+                                    @item.Title
+                                </a></h4>
+                            </div><!-- end meta -->
+                        </div><!-- end blog-box -->
+                    </div>
+                        
+                    }
+
+                </div><!-- end row -->
+            </div>
+        </div>
+
+    </div><!-- end mega-menu-content -->
+</div>
