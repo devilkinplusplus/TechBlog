@@ -1,0 +1,53 @@
+﻿@using Entities.Concrete
+@model IEnumerable<Category>
+@{
+    Layout = "_AuthLayout";
+}
+
+@{
+    int counter = 1;
+}
+<a href="/Admin/Category/Create" class="btn btn-info">
+    Create
+</a>
+<div class="bs-example widget-shadow" data-example-id="contextual-table">
+    <h4 class="lead ml-2">Colored Rows Table:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr class="active">
+                    <td>
+                        @counter.
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        <a href="/Admin/Category/Update/@item.CategoryId"
+                            class="btn btn-warning">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/Admin/Category/Delete/@item.CategoryId"
+                            class="btn btn-danger"
+                            onclick="return confirm('Are you sure?')">
+                            Delete
+                        </a>
+                    </td>
+                    @{counter++;}
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

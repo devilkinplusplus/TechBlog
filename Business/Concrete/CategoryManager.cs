@@ -24,6 +24,11 @@ namespace Business.Concrete
             categoryDal.Add(entity);
         }
 
+        public bool CheckName(string name)
+        {
+            return categoryDal.CheckName(name);
+        }
+
         public void Delete(Category entity)
         {
             categoryDal.Delete(entity);

@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface ICategoryDal:IEntityRepository<Category>
     {
+        bool CheckName(string name);
     }
 }

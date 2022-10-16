@@ -1,4 +1,7 @@
-﻿using Entities.Concrete;
+﻿using Core.Entity.Concrete;
+using Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class AppDbContext :DbContext
-    {
+    public class AppDbContext :IdentityDbContext<User,Role,int>
+	{
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=WIN-0AVBIPRU9F2;Database=TechBlog;Integrated Security = True");
@@ -18,5 +21,12 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Category> Categories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Writer> Writers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+			builder.Entity<User>().ToTable("Users");
+			builder.Entity<IdentityRole>().ToTable("Roles");
+		}
     }
 }
