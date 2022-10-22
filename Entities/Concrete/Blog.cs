@@ -1,4 +1,5 @@
 ﻿using Core.Entity;
+using Core.Entity.Concrete;
 
 namespace Entities.Concrete
 {
@@ -13,6 +14,7 @@ namespace Entities.Concrete
         public int WriterId { get; set; }
         public Writer Writer { get; set; }
         public string Description { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
     }
 }

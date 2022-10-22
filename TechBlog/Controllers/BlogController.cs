@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TechBlog.Controllers
 {
+
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
@@ -20,8 +22,8 @@ namespace TechBlog.Controllers
         
         public IActionResult Details(int id)
         {
-            ViewBag.Id = id;
             var data = _blogService.GetBlog(id);
+            ViewBag.Id = data.BlogId;
             return View(data);
         }
 

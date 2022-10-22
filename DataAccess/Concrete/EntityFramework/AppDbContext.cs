@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,12 +22,17 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Category> Categories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 			builder.Entity<User>().ToTable("Users");
 			builder.Entity<IdentityRole>().ToTable("Roles");
-		}
+        }
+
+
+      
     }
 }

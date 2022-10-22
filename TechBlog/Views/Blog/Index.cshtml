@@ -26,7 +26,13 @@
                                 @item.Title
                             </a>
                         </h4>
-                        <p>@item.Description</p>
+                        <p>
+                            @(
+                            item.Description.Length > 50 ?
+                                item.Description.Substring(0, 50) + " ..." :
+                            item.Description 
+                            )
+                        </p>
                         <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">@item.Category.Name</a></small>
                         <small>
                             <a href="tech-single.html" title="">
@@ -53,4 +59,3 @@
 
 
 </div><!-- end col -->
-
