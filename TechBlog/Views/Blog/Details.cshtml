@@ -60,7 +60,8 @@
 
         <hr class="invis1">
 
-        <partial name="~/Views/Comment/CommentList.cshtml"/>
+        @*<partial name="~/Views/Comment/CommentList.cshtml" view-data-id="@ViewBag.Id" />*@
+        @await Component.InvokeAsync("CommentList",new {id=Model.BlogId})
 
         <hr class="invis1">
 

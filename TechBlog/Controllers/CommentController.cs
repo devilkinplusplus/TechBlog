@@ -15,11 +15,7 @@ namespace TechBlog.Controllers
             _commentService = commentService;
         }
 
-        public IActionResult CommentList()
-        {
-            return PartialView();
-        }
-
+    
         [HttpGet]
         public IActionResult CommentAdd()
         {
@@ -34,7 +30,7 @@ namespace TechBlog.Controllers
 			model.BlogId = id;
             model.WriterId = sessionUser.WriterId;
             var jsonResult = JsonConvert.SerializeObject(model);
-            _commentService.Add(model);
+			_commentService.Add(model);
             return Json(jsonResult);
         }
     }

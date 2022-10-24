@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface ICommentDal:IEntityRepository<Comment>
     {
+        List<Comment> GetComments(int id);
     }
 }

@@ -38,6 +38,11 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Comment> GetComments(int id)
+        {
+            return _commentDal.GetComments(id);
+        }
+
         public void Update(Comment entity)
         {
             throw new NotImplementedException();
