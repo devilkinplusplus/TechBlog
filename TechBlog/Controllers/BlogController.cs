@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TechBlog.Controllers
 {
-
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;

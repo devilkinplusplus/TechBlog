@@ -48,6 +48,11 @@ namespace Business.Concrete
             return blogDal.GetBlogInfo();
         }
 
+        public List<Blog> GetBlogsById(int id)
+        {
+            return blogDal.GetBlogsById(id);
+        }
+
         public void Update(Blog entity)
         {
             blogDal.Update(entity);

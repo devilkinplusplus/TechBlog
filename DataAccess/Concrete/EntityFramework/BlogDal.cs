@@ -23,5 +23,10 @@ namespace DataAccess.Concrete.EntityFramework
         {
             return dbContext.Blogs.Include(x=>x.Category).Include(x=>x.Writer).ToList();
         }
+
+        public List<Blog> GetBlogsById(int id)
+        {
+            return dbContext.Blogs.Where(x=>x.WriterId==id).Include(x => x.Category).Include(x => x.Writer).ToList();
+        }
     }
 }

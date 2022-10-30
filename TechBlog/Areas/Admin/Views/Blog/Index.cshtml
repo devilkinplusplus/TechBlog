@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Blog>
+
+@{
+    int counter = 1;
+}
+<a href="/Admin/Blog/Create" class="btn btn-info">
+    Create
+</a>
+<div class="bs-example widget-shadow" data-example-id="contextual-table">
+    <h4 class="lead ml-2">
+        My Blogs
+    </h4>
+    <table class="table">
+        <thead>
+            <tr class="lead">
+                <th></th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr class="active">
+                    <td>
+                        @counter.
+                    </td>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.Category.Name
+                    </td>
+                    <td>
+                        @item.Date.ToString("dd.MM.yyyy")
+                    </td>
+
+                    <td>
+                        <a href="/Admin/Blog/Edit/@item.BlogId"
+                       class="btn btn-warning">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/Admin/Blog/Delete/@item.BlogId"
+                       class="btn btn-danger"
+                       onclick="return confirm('Are you sure?')">
+                            Delete
+                        </a>
+                    </td>
+                    @{
+                        counter++;
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

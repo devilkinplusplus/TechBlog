@@ -1,22 +1,23 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace TechBlog.ViewComponents.Layout
+namespace TechBlog.Controllers
 {
-    public class PopularPost : ViewComponent
+    public class GadgetController : Controller
     {
         private readonly IBlogService blogService;
-
-        public PopularPost(IBlogService blogService)
+        public GadgetController(IBlogService blogService)
         {
             this.blogService = blogService;
         }
 
-        public IViewComponentResult Invoke()
+        public IActionResult Index()
         {
             var values = blogService.GetBlogInfo();
-            return View(values.TakeLast(5));
+
+            return View(values);
         }
     }
 }

@@ -30,7 +30,7 @@
         </div><!-- end title -->
 
         <div class="single-post-media">
-            <img src="~/tech-blog/tech-blog/upload/tech_menu_08.jpg" alt="" class="img-fluid">
+            <img src="/blogImages/@Model.PhotoUrl" alt="" class="img-fluid">
         </div><!-- end media -->
 
         <div class="blog-content">
@@ -60,7 +60,7 @@
 
         <hr class="invis1">
 
-        @*<partial name="~/Views/Comment/CommentList.cshtml" view-data-id="@ViewBag.Id" />*@
+      
         @await Component.InvokeAsync("CommentList",new {id=Model.BlogId})
 
         <hr class="invis1">

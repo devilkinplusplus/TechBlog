@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     {
         List<Blog> GetBlogInfo();
         Blog GetBlog(int id);
+        List<Blog> GetBlogsById(int id);
     }
 }

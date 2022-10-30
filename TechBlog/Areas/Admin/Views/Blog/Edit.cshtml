@@ -1,0 +1,61 @@
+﻿@model UpdateVM
+
+<div class=" form-grids row form-grids-right">
+    <div class="widget-shadow " data-example-id="basic-forms">
+        <div class="form-title">
+            <h4>Update blog:</h4>
+        </div>
+        <div class="form-body">
+            <form method="post" class="form-horizontal" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Blog Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="Title"
+                               id="inputEmail3" placeholder="Title" value="@Model.Blog.Title">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
+                    <div class="col-sm-9">
+                        <select asp-items="@ViewBag.values"
+                                asp-for="@Model.Category.CategoryId"
+                                class="form-control"
+                                name="CategoryId">
+                            <option selected>@Model.Category.Name</option>
+                        </select>
+                
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="textAreaExample1" rows="4"
+                                  name="Description" placeholder="Description">
+                                  @Model.Blog.Description
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Upload</label>
+                    <div class="col-sm-9">
+                        <div class="blog_info_left_grid">
+                            <img src="/blogImages/@ViewData["img"]"
+                                 height=100 width=100 class="img-fluid img-circle" alt="">
+                        </div>
+                        <input type="file" class="form-control" asp-for="@Model.Blog.PhotoUrl"
+                               id="inputEmail3" name="PhotoUrl" 
+                               value="/blogImages/@ViewData["img"]" />
+                    </div>
+                    
+                </div>
+
+                <div class="col-sm-offset-2">
+                    <button type="submit" class="btn btn-success">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
