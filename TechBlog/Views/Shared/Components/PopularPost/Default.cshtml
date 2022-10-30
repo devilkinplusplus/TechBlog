@@ -5,10 +5,10 @@
         <div class="list-group">
             @foreach (var item in Model)
             {
-                <a href="tech-single.html" 
+                <a href="/blog/details/@item.BlogId"
                 class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="w-100 justify-content-between">
-                        <img src="~/tech-blog/tech-blog/upload/tech_blog_08.jpg" 
+                        <img src="/blogImages/@item.PhotoUrl" 
                             alt="" class="img-fluid float-left">
                         <h5 class="mb-1">@item.Title</h5>
                         <small>@item.Date.ToString("dd MMM yyyy")</small>
