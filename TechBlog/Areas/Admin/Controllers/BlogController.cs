@@ -4,9 +4,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
-using System.Reflection.Metadata;
 using TechBlog.Areas.Admin.ViewModels;
-using Entities.Concrete;
 using Entities.DTOs;
 using Business.Validations;
 using FluentValidation.Results;
@@ -38,12 +36,13 @@ namespace TechBlog.Areas.Admin.Controllers
             CategoryValues();
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(BlogCreateVM model)
         {
             var sessionUser = JsonConvert.DeserializeObject<Writer>(HttpContext.Session.GetString("username"));
-            Blog b = new Blog();
 
+            Blog b = new Blog();
 
             if (model.PhotoUrl != null)
             {
@@ -82,6 +81,8 @@ namespace TechBlog.Areas.Admin.Controllers
                  }).ToList();
             ViewBag.values = categoryValues;
         }
+
+
 
 
         [HttpGet]

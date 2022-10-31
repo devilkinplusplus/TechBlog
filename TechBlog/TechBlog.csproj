@@ -28,6 +28,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="wwwroot\blogImages\" />
+    <Folder Include="wwwroot\writerImages\" />
   </ItemGroup>
 
 </Project>

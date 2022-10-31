@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TechBlog.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [NonController]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
