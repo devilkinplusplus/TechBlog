@@ -1,9 +1,11 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TechBlog.Controllers
 {
+    [AllowAnonymous]
     public class ContactController : Controller
     {
         private readonly IContactService _contactService;
@@ -21,7 +23,7 @@ namespace TechBlog.Controllers
         public IActionResult Index(Contact model)
         {
             _contactService.Add(model);
-            //TempData["succes"] = "Sent succesfully";
+            TempData["succes"] = "Sent succesfully";
             return RedirectToAction("Index");
         }
     }

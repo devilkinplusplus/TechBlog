@@ -1,10 +1,12 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace TechBlog.Controllers
 {
+    [AllowAnonymous]
     public class GadgetController : Controller
     {
         private readonly IBlogService blogService;

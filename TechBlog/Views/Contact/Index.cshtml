@@ -34,13 +34,29 @@
     </div>
 </div>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+        @{
+            var messaje = TempData["succes"];
+        }
+        var message = '@messaje';
+        if (message) {
+            swal({
+                title: "Good job!",
+                text: message,
+                icon: "success",
+                button: "Ok",
+            });
+        }
+</script>
+
 <script type="text/javascript">
     function submitContact() {
         var data = $("#concatcForm").serialize();
         $.ajax({
             type: 'POST',
             url: '/Contact/Index',
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: data,
             success: function (result) {
                 console.log(result);
